@@ -1,8 +1,37 @@
+.header_top {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    height: 30px;
+    align-items: center;
+
+    button {
+        color: gray;
+        font-weight: normal; // 400
+        background-color: transparent;
+    }
+
+    button:hover {
+        color: #2eb890;
+        background-color: transparent !important;
+    }
+    // this is not working
+    mat-menu > button {
+        background-color: black !important;
+        color: red !important;
+    }
+
+    mat-divider {
+        height: 15px;
+        background-color: black;
+    }
+}
+
 .header_body {
     background-color: #efefef;
     display: flex;
     justify-content: space-between;
-    height: 140px;
+    height: 120px;
     align-items: center;
     padding-right: 10px;
     padding-left: 10px;
@@ -81,6 +110,7 @@
         font-size: 16px;
         border-radius: 0;
         height: 100%; 
+        font-weight: normal;
     }
     
     .button_bar > button:hover {
