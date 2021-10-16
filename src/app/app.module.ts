@@ -10,12 +10,22 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatMenuModule} from '@angular/material/menu';
-
+import { ProductsComponent } from './COMPONENTS/products/products.component';
+import { FooterComponent } from './COMPONENTS/footer/footer.component';
+import { HomeComponent } from './PAGES/home/home.component';
+import {MatCardModule} from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
+import { RatingModule } from 'ng-starrating';
+import { ProductPageComponent } from './PAGES/product-page/product-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProductsComponent,
+    FooterComponent,
+    HomeComponent,
+    ProductPageComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +35,10 @@ import {MatMenuModule} from '@angular/material/menu';
     MatIconModule,
     MatDividerModule,
     MatBadgeModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCardModule,
+    HttpClientModule,
+    RatingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

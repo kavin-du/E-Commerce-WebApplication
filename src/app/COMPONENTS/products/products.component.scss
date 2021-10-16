@@ -1,0 +1,48 @@
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .product {
+        mat-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 250px;
+            height: 300px;
+            margin: 10px;
+            
+            img {
+                height: 175px;
+                object-fit: contain;
+            }
+
+            .description {
+
+                ngb-rating {
+                    color: rgb(248, 172, 9);
+                    font-size: 20px;
+                }
+    
+                // ngb-rating:disabled {
+                //     color: gray;
+                //     // font-size: 20px;
+                // }
+    
+                p {
+                    color: gray;
+                }
+                p:hover {
+                    color: #2eb890;
+                    cursor: pointer;
+                }
+    
+                h4 {
+                    font-weight: 800;
+                    color: rgb(82, 78, 78);
+                }
+            }
+        }
+    }
+}
