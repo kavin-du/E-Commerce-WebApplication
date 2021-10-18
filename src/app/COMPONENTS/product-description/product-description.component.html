@@ -4,7 +4,24 @@
             <img src="{{ product.image }}" alt="">
         </div>
         <div class="other_images">
-
+            <carousel 
+            [width]="250" 
+            [height]="80" 
+            [arrowsOutside]="true"
+            [cellsToShow]="3">
+                <div class="carousel-cell">
+                    <img src="{{ product.image }}" alt="">
+                </div>
+                <div class="carousel-cell">
+                    <img src="{{ product.image }}" alt="">
+                </div>
+                <div class="carousel-cell">
+                    <img src="{{ product.image }}" alt="">
+                </div>
+                <div class="carousel-cell">
+                    <img src="{{ product.image }}" alt="">
+                </div>
+            </carousel>
         </div>
 
     </div>

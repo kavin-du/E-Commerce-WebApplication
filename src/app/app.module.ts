@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RatingModule } from 'ng-starrating';
 import { ProductPageComponent } from './PAGES/product-page/product-page.component';
 import { ProductDescriptionComponent } from './COMPONENTS/product-description/product-description.component';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ProductDescriptionComponent } from './COMPONENTS/product-description/pr
     MatMenuModule,
     MatCardModule,
     HttpClientModule,
-    RatingModule
+    RatingModule,
+    IvyCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

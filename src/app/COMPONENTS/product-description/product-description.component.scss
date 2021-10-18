@@ -3,6 +3,9 @@
     flex-direction: row;
     .left {
         margin: 0 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         .main_image {
             box-sizing: border-box; // padding not changing the size of box
             padding: 10px;
@@ -13,6 +16,22 @@
                 object-fit: contain;
                 max-width: 100%;
                 max-height: 100%;
+            }
+        }
+        .other_images {
+            margin: 20px 0;
+            carousel {
+                .carousel-cell {
+                    box-sizing: border-box; 
+                    border: 0.5px solid lightgray;
+                    // margin: 0 10px !important;
+                    padding: 1%;
+                    &.img {
+                        object-fit: contain;
+                        max-width: 100%;
+                        max-height: 100%;
+                    }
+                }
             }
         }
     }
