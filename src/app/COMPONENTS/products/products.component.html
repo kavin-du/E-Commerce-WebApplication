@@ -1,5 +1,5 @@
 <div class="products">
-    <div class="product" *ngFor="let item of products">
+    <div class="product" *ngFor="let item of products; trackBy: trackByFn">
         <mat-card>
             <img src="{{ item.image }}" alt="" class="product_image">
             

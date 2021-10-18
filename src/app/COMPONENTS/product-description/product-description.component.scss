@@ -1,0 +1,92 @@
+.product {
+    display: flex;
+    flex-direction: row;
+    .left {
+        margin: 0 25px;
+        .main_image {
+            box-sizing: border-box; // padding not changing the size of box
+            padding: 10px;
+            border: 0.5px solid lightgray;
+            width: 330px;
+            height: 400px;
+            img {
+                object-fit: contain;
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+    }
+    .right {
+        width: 100%;
+        .title > h3 {
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        .reviews {
+            margin: 12px 0;
+            display: flex;
+            flex-direction: row;
+            gap: 18px;
+            color: gray;
+            .write_review {
+                display: flex;
+                align-items: center;
+
+                mat-icon {
+                    display: flex;
+                    align-items: center;
+                    font-size: 18px;
+                }
+                &:hover {
+                    color: var(--primaryColor);
+                    cursor: pointer;
+                }
+            }
+        }
+        .description {
+            color: gray;
+            margin: 12px 0;
+        }
+        .price > h3 {
+            font-weight: 500;
+        }
+        .cart {
+            display: flex;
+            color: rgb(109, 107, 107);
+            align-items: center;
+            gap: 10px;
+            margin: 12px 0;
+
+            input {
+                width: 40px;
+                height: 30px;
+                border: 1px solid rgb(168, 167, 167);
+            }
+            input:focus {
+                outline: none;
+                box-shadow: 0 0 3px 0.05px blue;
+                border: 1px solid teal;
+            }
+            button {
+                color: white;
+                border-radius: 0;
+                height: 40px;
+                font-weight: 400;
+                background-color: var(--primaryColor);
+            }
+            button:hover {
+                background-color: rgb(43, 38, 38);
+            }
+        }
+        .wishlist {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            &:hover {
+                color: var(--secondaryColor);
+                cursor: pointer;
+            }
+        }
+    }
+}

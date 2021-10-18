@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { StarRatingComponent } from 'ng-starrating';
 
 @Component({
   selector: 'app-products',
@@ -12,6 +13,11 @@ export class ProductsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  // trackby function for reduce dom redering
+  trackByFn(index: number, item: any): number {
+    return index;
   }
 
   // onRate($event:{oldValue:number, newValue:number, starRating:StarRatingComponent}) {

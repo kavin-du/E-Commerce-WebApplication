@@ -1,5 +1,6 @@
 import { ApiService } from './../../SERVICES/api.service';
 import { Component, OnInit } from '@angular/core';
+import { Subject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -8,17 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   items: any[] = [];
+  // items$: Observable<any[]> = new Observable();
+
+  // private _destroyed$ = new Subject();
+
   constructor(private api: ApiService) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.getProducts();
   }
 
-  getProducts() {
-    this.api.getProducts().subscribe(resp => {
+  public getProducts() {
+    this.api.getProducts()
+    .subscribe(resp => {  // ? need to unsubscribe, otherwise mem leak
       this.items = resp;
       // console.log(resp);
       
     });
+
+    // this.items$ = this.api.getProducts();
   }
 }

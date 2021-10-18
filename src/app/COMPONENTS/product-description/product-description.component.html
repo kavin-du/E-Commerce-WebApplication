@@ -1,0 +1,51 @@
+<div class="product" *ngIf="(product$ | async) as product">
+    <div class="left">
+        <div class="main_image">
+            <img src="{{ product.image }}" alt="">
+        </div>
+        <div class="other_images">
+
+        </div>
+
+    </div>
+    <div class="right">
+        <div class="title">
+            <h3>{{ product.title}}</h3>
+        </div>
+        <div class="reviews">
+            <span>stars</span>
+            <span>1 reviews</span>
+            <div class="write_review">
+                <mat-icon>edit</mat-icon>
+                <span>Write a review</span>
+            </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="description">
+            <p>Brands: Hewlett-Packard</p>
+            <p>Product Code: Product 21</p>
+            <p>Availability: In Stock</p>
+        </div>
+        <div class="price">
+            <h3>Rs. {{ product.price }}/=</h3>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="cart">
+            <span>Qty</span>
+            <input type="number" value="1" min="1">
+            <button mat-button> ADD TO CART</button>
+        </div>
+        <div class="wishlist">
+            <mat-icon>favorite</mat-icon>
+            <span>Add to Wish List</span>
+        </div>
+    </div>
+</div>
+<!-- 
+     id:1,
+            //title:'...',
+            //price:'...',
+            category:'...',
+            description:'...',
+            //image:'...'
+ -->

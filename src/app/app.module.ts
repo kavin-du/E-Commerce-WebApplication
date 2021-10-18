@@ -17,6 +17,7 @@ import {MatCardModule} from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { RatingModule } from 'ng-starrating';
 import { ProductPageComponent } from './PAGES/product-page/product-page.component';
+import { ProductDescriptionComponent } from './COMPONENTS/product-description/product-description.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ProductPageComponent } from './PAGES/product-page/product-page.componen
     ProductsComponent,
     FooterComponent,
     HomeComponent,
-    ProductPageComponent
+    ProductPageComponent,
+    ProductDescriptionComponent
   ],
   imports: [
     BrowserModule,

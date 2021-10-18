@@ -12,7 +12,7 @@
     }
 
     button:hover {
-        color: #2eb890;
+        color: var(--primaryColor);
         background-color: transparent !important;
     }
     // this is not working
@@ -83,7 +83,7 @@
                 width: 35px;
                 font-size: 35px;
                 border-radius: 50%;
-                background-color: #fe646f;
+                background-color: var(--secondaryColor);
                 cursor: pointer;
             }
             mat-icon > .mat-badge-content {
@@ -103,6 +103,11 @@
     justify-content: space-between;
     background-color: #333;
     height: 60px;
+
+    .button_bar {
+        display: flex;
+        flex-wrap: none;
+    }
 
     .button_bar > button {
         background-color: transparent;
@@ -137,7 +142,7 @@
             border-radius: 0;
             border: none !important;
             outline: none !important;
-            background-color: #2eb890;
+            background-color: var(--primaryColor);
             color: white;
         }
     }
