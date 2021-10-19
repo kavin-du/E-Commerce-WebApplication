@@ -1,4 +1,4 @@
-.product {
+.top {
     display: flex;
     flex-direction: row;
     .left {
@@ -108,4 +108,37 @@
             }
         }
     }
+}
+
+.tab_view {
+    mat-tab-group{
+        .mat-tab-label {
+            color: black;
+            margin-right: 5px;
+        }
+        .mat-tab-label-active {
+            background-color: var(--secondaryColor);
+            color: white;
+        }
+        .mat-tab-label:hover {
+            background-color: var(--secondaryColor);
+            color: white;
+        }
+        .review_form{
+
+            form{
+                display: flex;
+                flex-direction: column;
+                button {
+                    background-color: var(--primaryColor);
+                    width: 120px;
+                    &:hover {
+                        background-color: black;
+                        color: white;
+                    }
+                }
+            }
+        } 
+    }
+
 }
