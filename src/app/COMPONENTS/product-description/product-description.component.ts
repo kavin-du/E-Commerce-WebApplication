@@ -30,7 +30,7 @@ export class ProductDescriptionComponent implements OnInit {
 
   ngOnInit(): void {
     let id = this.route.snapshot.params.productId;
-    // ! this.getSingleProduct(id);
+    this.getSingleProduct(id);
     
   }
 

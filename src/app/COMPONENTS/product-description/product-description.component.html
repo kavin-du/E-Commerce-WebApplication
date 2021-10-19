@@ -1,6 +1,6 @@
-<!-- <div class="product" *ngIf="(product$ | async) as product"> -->
-<div class="product">
-    <!-- <div class="top">
+<div class="product" *ngIf="(product$ | async) as product">
+<!-- <div class="product"> -->
+    <div class="top">
 
         <div class="left">
             <div class="main_image">
@@ -60,14 +60,29 @@
                 <span>Add to Wish List</span>
             </div>
         </div>
-    </div> -->
+    </div>
 
     <div class="tab_view">
         <mat-tab-group animationDuration="0ms">
-            <!-- <mat-tab label="DESCRIPTION">{{ product.description }}</mat-tab> -->
-            <!-- <mat-tab label="SPECIFICATION">Content 2</mat-tab> -->
+            <mat-tab label="DESCRIPTION">{{ product.description }}</mat-tab>
+            <mat-tab label="SPECIFICATION">Content 2</mat-tab>
             <mat-tab label="REVIEWS (x)">
-                <span>show current reviews here</span>
+                <div class="single_review">
+                    <div class="user_and_date">
+                        <div class="user">
+                            <span>Janaka</span>
+                        </div>
+                        <div class="date">
+                            <span>Jan 30, 2021</span>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <p>this is the review body, this is the review body, 
+                            this is the review body
+                        </p>
+                        <span>***stars here **</span>
+                    </div>
+                </div>
                 <div class="review_form">
                     <form [formGroup]="reviewForm" (submit)="onSubmit()">
                         <mat-form-field class="form_field" appearance="outline">

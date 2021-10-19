@@ -124,14 +124,35 @@
             background-color: var(--secondaryColor);
             color: white;
         }
-        .review_form{
-
-            form{
+        .single_review {
+            display: flex;
+            flex-direction: column;
+            
+            .user_and_date{
+                display: flex;
+                flex-direction: row;
+                border: 0.05px solid lightgray;
+                border-bottom: none;
+                justify-content: space-between;
+                background-color: rgb(233, 233, 233);
+                padding: 6px;
+                .user {
+                    font-weight: 500;
+                }
+            }
+            .comment {
+                padding: 6px;
+                border: 0.05px solid lightgray;
+            }
+        }
+        .review_form {
+            form {
                 display: flex;
                 flex-direction: column;
                 button {
                     background-color: var(--primaryColor);
                     width: 120px;
+                    border-radius: 0;
                     &:hover {
                         background-color: black;
                         color: white;
