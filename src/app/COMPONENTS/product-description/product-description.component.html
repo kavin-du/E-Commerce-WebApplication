@@ -89,7 +89,7 @@
                             <mat-label>Your email</mat-label>
                             <input matInput type="email" formControlName="email" required>
                             <mat-error
-                                *ngIf="reviewForm.controls.email.touched && reviewForm.controls.email.invalid">
+                                *ngIf="reviewForm.controls.email.invalid">
                                 <span *ngIf="reviewForm.controls.email.errors?.required">This field
                                     is required.</span>
                                 <span *ngIf="reviewForm.controls.email.errors?.email">Check the email again.</span>
@@ -101,7 +101,7 @@
                             <mat-label>Your Review</mat-label>
                             <textarea matInput type="text" formControlName="description"></textarea>
                             <mat-error
-                                *ngIf="reviewForm.controls.email.touched">
+                                *ngIf="reviewForm.controls.email.invalid">
                                 <span *ngIf="reviewForm.controls.email.errors?.required">This field
                                     is required.</span>
                             </mat-error>

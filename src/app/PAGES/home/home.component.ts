@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   // items$: Observable<any[]> = new Observable();
 
   // private _destroyed$ = new Subject();
-
+  
   constructor(private api: ApiService) { }
 
   public ngOnInit(): void {
