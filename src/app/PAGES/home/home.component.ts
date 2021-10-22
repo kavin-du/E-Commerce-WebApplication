@@ -1,5 +1,5 @@
 import { ApiService } from './../../SERVICES/api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 
 @Component({
@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   // items$: Observable<any[]> = new Observable();
 
   // private _destroyed$ = new Subject();
-  
+  @Output() loadCompleted: boolean = false;
   constructor(private api: ApiService) { }
 
   public ngOnInit(): void {
@@ -21,11 +21,17 @@ export class HomeComponent implements OnInit {
 
   public getProducts() {
     this.api.getProducts()
-    .subscribe(resp => {  // ? need to unsubscribe, otherwise mem leak
-      this.items = resp;
-      // console.log(resp);
-      
-    });
+    .subscribe(
+      resp => {  // ? need to unsubscribe, otherwise mem leak
+        this.items = resp;
+        // console.log(resp);      
+      }, err => { 
+        console.log(err);
+        
+      }, () => {
+        this.loadCompleted = true;
+      }
+    );
 
     // this.items$ = this.api.getProducts();
   }
