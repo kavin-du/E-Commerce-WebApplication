@@ -28,7 +28,7 @@
 }
 
 .header_body {
-    background-color: #efefef;
+    background-color: var(--backgroundLightGray);
     display: flex;
     justify-content: space-between;
     height: 120px;
@@ -119,7 +119,7 @@
     }
     
     .button_bar > button:hover {
-        background-color: #696969;
+        background-color: var(--textGray);
     }
 
     .search_bar {
