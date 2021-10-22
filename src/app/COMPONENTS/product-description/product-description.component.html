@@ -115,6 +115,10 @@
     </div>
 </div>
 
+<div class="progress" *ngIf="!(product$ | async)">
+    <mat-spinner></mat-spinner>
+</div>
+
 <!-- 
     id:1,
             //title:'...',

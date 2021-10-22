@@ -16,6 +16,7 @@ export class ProductDescriptionComponent implements OnInit {
 
   // @Output() product: any = {};
   product$: Observable<any> = new Observable<any>();
+  // @Output() loadCompleted: boolean = false;
 
   reviewForm: FormGroup = this.formBuilder.group({
     email: [null, [Validators.required, Validators.email]],
