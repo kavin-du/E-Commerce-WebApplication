@@ -1,11 +1,11 @@
-.footer {
+.footer_top {
     display: flex;
     flex-direction: row;
     background-color: var(--backgroundLightGray);
     color: var(--textGray);
     padding: 50px;
     line-height: 1.6rem;
-    justify-content: space-around;
+    justify-content: space-between;
 
     .company {
         display: flex;
@@ -64,5 +64,20 @@
             
 
         }
+    }
+}
+
+.footer_bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    span {
+        color: var(--textGray);
+    }
+    .pay_card > img{
+        width: 150px;
+        // height: 50px;
     }
 }
