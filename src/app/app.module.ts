@@ -25,6 +25,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeImageSliderComponent } from './COMPONENTS/home-image-slider/home-image-slider.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoginPageComponent } from './PAGES/login-page/login-page.component';
+import { RegisterComponent } from './COMPONENTS/register/register.component';
+import { LoginComponent } from './COMPONENTS/login/login.component';
+import { ProfileComponent } from './COMPONENTS/profile/profile.component';
+import { AdminComponent } from './PAGES/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +40,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     HomeComponent,
     ProductPageComponent,
     ProductDescriptionComponent,
-    HomeImageSliderComponent
+    HomeImageSliderComponent,
+    LoginPageComponent,
+    RegisterComponent,
+    LoginComponent,
+    ProfileComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,

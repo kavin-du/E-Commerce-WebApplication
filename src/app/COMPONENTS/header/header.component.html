@@ -5,8 +5,8 @@
             <mat-icon>arrow_drop_down</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item>Register</button>
-            <button mat-menu-item>Login</button>
+            <button mat-menu-item [routerLink]="['/register']" routerLinkActive="router-link-active" >Register</button>
+            <button mat-menu-item [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</button>
         </mat-menu>
         <mat-divider [vertical]="true"></mat-divider>
         <button mat-button>Wish List</button>

@@ -1,0 +1,20 @@
+.card-container {
+    img{
+        display: flex;
+        margin: 10px auto;
+        border-radius: 50%;
+
+    }
+    form {
+        .names {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .passwords {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+}

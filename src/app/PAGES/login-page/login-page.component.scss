@@ -1,0 +1,17 @@
+.mat-tab-group {
+    width: 35%;
+    margin: auto;
+
+    .mat-tab-label {
+        color: black;
+        margin-right: 5px;
+    }
+    .mat-tab-label-active {
+        background-color: var(--secondaryColor);
+        color: white;
+    }
+    .mat-tab-label:hover {
+        background-color: var(--secondaryColor);
+        color: white;
+    }
+}
