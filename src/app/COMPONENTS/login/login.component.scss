@@ -24,16 +24,13 @@
             }
         }
         .buttons {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
+            margin: 10px auto;
             button {
                 border-radius: 0;
                 border: none;
                 outline: none;
                 background-color: var(--primaryColor);
                 color: white;
-                // margin-right: 20px;
                 width: 150px;
 
                 &:disabled {

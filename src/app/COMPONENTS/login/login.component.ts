@@ -37,15 +37,15 @@ export class LoginComponent implements OnInit {
 
   clearForm(): void {
     this.loginFormGroup.reset();
-    Object.keys(this.loginFormGroup.controls)
-    .forEach(key => {
-      this.loginFormGroup.get(key)?.setErrors(null);
-    });
-        
+    // Object.keys(this.loginFormGroup.controls)
+    // .forEach(key => {
+    //   this.loginFormGroup.get(key)?.setErrors(null);
+    // });
   }
 
   onSubmit(): void {
-
+    console.log(this.loginFormGroup.value);
+    
     this.authService.login(
       this.loginFormGroup.controls.email.value, 
       this.loginFormGroup.controls.password.value, 

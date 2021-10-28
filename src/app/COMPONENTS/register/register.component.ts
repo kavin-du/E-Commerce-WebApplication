@@ -51,10 +51,10 @@ export class RegisterComponent implements OnInit {
 
   clearForm(): void {
     this.registerFormGroup.reset();
-    Object.keys(this.registerFormGroup.controls)
-    .forEach(key => {
-      this.registerFormGroup.get(key)?.setErrors(null);
-    });
+    // Object.keys(this.registerFormGroup.controls)
+    // .forEach(key => {
+    //   this.registerFormGroup.get(key)?.setErrors(null);
+    // });
         
   }
 
