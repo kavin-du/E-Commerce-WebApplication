@@ -1,5 +1,5 @@
 import { AuthService } from './../../SERVICES/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 
 // type RegisterFormType = {
@@ -47,6 +47,15 @@ export class RegisterComponent implements OnInit {
   constructor(private AuthService: AuthService) { }
 
   ngOnInit(): void {
+  }
+
+  clearForm(): void {
+    this.registerFormGroup.reset();
+    Object.keys(this.registerFormGroup.controls)
+    .forEach(key => {
+      this.registerFormGroup.get(key)?.setErrors(null);
+    });
+        
   }
 
   onSubmit(): void {
