@@ -6,6 +6,8 @@
         height: 150px;
     }
     form {
+        display: flex;
+        flex-direction: column;
         .names {
             display: flex;
             flex-direction: row;
@@ -22,22 +24,24 @@
             }
         }
         .buttons {
-            display: flex;
-            flex-direction: row;
+            margin: auto;
             button {
                 border-radius: 0;
                 border: none;
                 outline: none;
                 background-color: var(--primaryColor);
                 color: white;
-                margin-right: 20px;
                 width: 150px;
 
                 &:disabled {
                     background-color: gray;
                 }
             }
+            .register {
+                margin-right: 10px;
+            }
             .clear {
+                margin-left: 10px;
                 background-color: white;
                 color: var(--primaryColor);
                 outline: 1px solid var(--primaryColor);

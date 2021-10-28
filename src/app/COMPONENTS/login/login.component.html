@@ -1,71 +1,49 @@
-<div class="col-md-12">
-    <div class="card card-container">
-        <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="">
-    </div>
-
+<div class="card-container">
+    <img class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="" />
     <form 
         *ngIf="!isLoggedIn"
-        name="form"
-        (ngSubmit)="f.form.valid && onSubmit()"
-        #f="ngForm"
-        novalidate >
+        [formGroup] = "loginFormGroup"
+        (ngSubmit)="loginFormGroup.valid && onSubmit()"
+        >
+
+        <div class="form-group">
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput
+                    placeholder="abc@example.com"
+                    formControlName="email"
+                    required>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-error *ngIf="loginFormGroup.get('email')?.invalid">Email is not valid</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="passwords">
+            <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput 
+                    [type]="hidePassword ? 'password' : 'text'"
+                    formControlName="password"
+                    required>
+                <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+                    <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
         
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input 
-            type="email"
-            class="form-control"
-            name="email"
-            [(ngModel)]="loginForm.email"
-            required
-            #email="ngModel" />
-
-            <div 
-                class="alert alert-danger" 
-                role="alert"
-                *ngIf="email.errors && f.submitted">
-                Email is required !
-            </div>
+        <div class="buttons">
+            <button mat-button class="login" type="submit" [disabled]="!loginFormGroup.valid">Register</button>
+            <button mat-button class="clear" (click)="clearForm()">Clear</button>
         </div>
 
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input 
-                type="password"
-                class="form-control"
-                name="password"
-                [(ngModel)]="loginForm.password"
-                required
-                minlength="6"
-                #password="ngModel" 
-            />
-            <div 
-                class="alert alert-danger"
-                role="alert"
-                *ngIf="password.errors && f.submitted">
 
-                <div *ngIf="password.errors.required"> Password is required</div>
-                <div *ngIf="password.errors.minlength">
-                    Password must be at least 6 characters
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <button class="btn btn-primary btn-block">Login</button>
-        </div>
-
-        <div class="form-group">
-            <div 
-                class="alert alert-danger"
-                role="alert"
-                *ngIf="f.submitted && isLoginFailed">
-                Login failed: {{ errorMessage }}
-            </div>
-        </div>
+        <!-- <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+            Register failed! <br /> {{ errorMessage }}
+        </div> -->
+        
     </form>
 
     <div class="alert alert-success" *ngIf="isLoggedIn">
-        Logged in as {{ roles }}
+        Registration success! (login again ?)
     </div>
 </div>

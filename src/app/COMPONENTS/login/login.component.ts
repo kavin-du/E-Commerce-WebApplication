@@ -2,11 +2,8 @@ import { TokenStorageService } from './../../SERVICES/token-storage.service';
 import { AuthService } from './../../SERVICES/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-type loginFormType = {
-  email: string,
-  password: string,
-};
 
 @Component({
   selector: 'app-login',
@@ -15,11 +12,12 @@ type loginFormType = {
 })
 export class LoginComponent implements OnInit {
 
-  loginForm: loginFormType = {
-    email: 'null2',
-    password: 'null2'
-  }
+  loginFormGroup = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required]),
+  });
 
+  hidePassword = true;
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
@@ -37,10 +35,21 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  onSubmit(): void {
-    const { email, password } = this.loginForm;
+  clearForm(): void {
+    this.loginFormGroup.reset();
+    Object.keys(this.loginFormGroup.controls)
+    .forEach(key => {
+      this.loginFormGroup.get(key)?.setErrors(null);
+    });
+        
+  }
 
-    this.authService.login(email, password).subscribe(
+  onSubmit(): void {
+
+    this.authService.login(
+      this.loginFormGroup.controls.email.value, 
+      this.loginFormGroup.controls.password.value, 
+    ).subscribe(
       data => {
         this.tokenStorage.saveToken(data.accessToken); //! check this
         this.tokenStorage.saveUser(data); // ! check this

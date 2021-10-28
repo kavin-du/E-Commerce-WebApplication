@@ -1,0 +1,54 @@
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img{
+        display: flex;
+        margin: 10px auto;
+        border-radius: 50%;
+        height: 150px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        .passwords {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        div {
+            mat-form-field {
+                width: 235px;
+            }
+        }
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            button {
+                border-radius: 0;
+                border: none;
+                outline: none;
+                background-color: var(--primaryColor);
+                color: white;
+                // margin-right: 20px;
+                width: 150px;
+
+                &:disabled {
+                    background-color: gray;
+                }
+            }
+            .login{
+                margin-right: 10px;
+            }
+            .clear {
+                margin-left: 10px;
+                background-color: white;
+                color: var(--primaryColor);
+                outline: 1px solid var(--primaryColor);
+            }
+        }
+    }
+}
