@@ -6,8 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-
-  private products = 'https://fakestoreapi.com/products?limit=6';
+  // https://mystore-api-330411.el.r.appspot.com
+  private products = 'https://fakestoreapi.com/products?limit=15';
+  // private products = 'https://mystore-api-330411.el.r.appspot.com/api/v1/items';
   private product = 'https://fakestoreapi.com/products/';
 
   constructor(private Http:HttpClient) { }
