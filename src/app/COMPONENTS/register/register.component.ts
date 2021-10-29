@@ -3,15 +3,6 @@ import { AuthService } from './../../SERVICES/auth.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, Validators, FormGroup, ValidatorFn, AbstractControl } from '@angular/forms';
 
-// type RegisterFormType = {
-//   firstName: string,
-//   lastName: string,
-//   email: string,
-//   password: string,
-//   address: string,
-//   mobile: string,
-// };
-
 
 @Component({
   selector: 'app-register',
@@ -19,15 +10,6 @@ import { FormControl, Validators, FormGroup, ValidatorFn, AbstractControl } from
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  
-  // form: RegisterFormType = {
-  //   firstName: '',
-  //   lastName: '',
-  //   email: '',
-  //   password: '',
-  //   address: '',
-  //   mobile: '',
-  // }
 
   registerFormGroup = new FormGroup({
     firstName: new FormControl('', [Validators.required]),
@@ -37,7 +19,7 @@ export class RegisterComponent implements OnInit {
     passwordConfirm: new FormControl('', [Validators.required]),
     address: new FormControl('', [Validators.required]),
     mobile: new FormControl('', [Validators.required]),
-  });
+  }, { validators: passwordConfirmValidator });
 
   hidePassword1 = true;
   hidePassword2 = true;
@@ -53,9 +35,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // passwordConfirmValidator(): ValidatorFn{
-  //   return (control: AbstractControl): { [key: string]: boolean}
-  // }
 
   clearForm(): void {
     this.registerFormGroup.reset();
@@ -76,16 +55,30 @@ export class RegisterComponent implements OnInit {
       this.registerFormGroup.controls.address.value, 
       this.registerFormGroup.controls.mobile.value).subscribe(
       data => {
-        console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
       },
       err => {
-        this.errorMessage =err;
-        this.isSignUpFailed = true;        
-        this._snackBar.open(JSON.stringify(err.message), 'Close');
+        this.errorMessage =err?.error?.errors?.join('\n');
+        this.isSignUpFailed = true;     
+        console.log(err);
+           
+        this._snackBar.open(this.errorMessage, 'Close');
       }
     );
   }
 
+}
+
+export function passwordConfirmValidator(control: AbstractControl): { [key: string]: boolean} | null{
+  console.log(control.errors);
+  
+  if (control.get('password')?.value && control.get('passwordConfirm')?.value && (control.get('password')?.value == control.get('passwordConfirm')?.value)) {
+    
+    console.log('pass match');
+    return null;
+  }
+  console.log('do not match');
+  return {'passwordsNotMatch': true};
+  
 }

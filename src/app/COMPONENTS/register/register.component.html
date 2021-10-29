@@ -48,6 +48,7 @@
                 <button mat-icon-button matSuffix (click)="hidePassword1 = !hidePassword1" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword1">
                     <mat-icon>{{hidePassword1 ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
+                <mat-error *ngIf="registerFormGroup.get('password')?.invalid">Password is required</mat-error>
             </mat-form-field>
 
             <mat-form-field appearance="fill">
@@ -59,8 +60,11 @@
                 <button mat-icon-button matSuffix (click)="hidePassword2 = !hidePassword2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword2">
                     <mat-icon>{{hidePassword2 ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
+                <mat-error *ngIf="registerFormGroup.errors?.passwordsNotMatch">Passwords do not match</mat-error>
             </mat-form-field>
         </div>
+
+        <!-- passwordsNotMatch -->
 
         <div class="form-group">
             <mat-form-field appearance="fill">
