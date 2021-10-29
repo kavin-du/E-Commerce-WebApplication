@@ -82,17 +82,16 @@
                     margin-right: 20px; // for mat badge
                     padding: 12%;
                     color: white;
-                    height: 35px; 
-                    width: 35px;
-                    font-size: 35px;
+                    height: 40px; 
+                    width: 40px;
                     border-radius: 50%;
                     background-color: var(--secondaryColor);
                     cursor: pointer;
                 }
-                mat-icon > .mat-badge-content {
-                    background: black !important;
-                    color: red !important;
-                }
+                // mat-icon > .mat-badge-content {
+                //     background: black !important;
+                //     color: red !important;
+                // }
                     
             }
     

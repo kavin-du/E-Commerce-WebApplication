@@ -1,8 +1,8 @@
-
 .products {
     display: flex;
     flex-wrap: wrap;
     margin: 10px var(--globalMargin);
+    justify-content: space-between;
 
     .product {
         margin: 10px 20px 10px 0;
@@ -21,7 +21,7 @@
             width: 100%;
             object-fit: contain;
             padding: 0;
-
+            
             &:hover {
                 cursor: pointer;
             }
