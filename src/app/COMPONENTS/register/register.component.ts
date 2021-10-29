@@ -59,7 +59,7 @@ export class RegisterComponent implements OnInit {
         this.isSignUpFailed = false;
       },
       err => {
-        this.errorMessage =err?.error?.errors?.join('\n');
+        this.errorMessage =err?.error?.errors;
         this.isSignUpFailed = true;     
         console.log(err);
            

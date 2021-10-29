@@ -9,3 +9,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --backgroundLightGray: #efefef;
     --textGray: #696969;
 }
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

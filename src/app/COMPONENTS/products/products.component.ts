@@ -9,7 +9,7 @@ import { StarRatingComponent } from 'ng-starrating';
 export class ProductsComponent implements OnInit {
   @Input() products: any[] = [];
   @Input() loadCompleted: boolean = false;
-  rating: any = 2;
+  rating: number = 2;
 
   constructor() { }
 

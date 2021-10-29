@@ -31,6 +31,7 @@ import { LoginComponent } from './COMPONENTS/login/login.component';
 import { ProfileComponent } from './COMPONENTS/profile/profile.component';
 import { AdminComponent } from './PAGES/admin/admin.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     FormsModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -167,8 +167,10 @@
     }
 }
 .progress {
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 35px;
+    margin: 100px;
+    background-color: transparent;
 }

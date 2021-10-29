@@ -4,12 +4,13 @@
             <img  [routerLink]="['/products', item.id]" routerLinkActive="router-link-active" src="{{ item.image }}" alt="" class="product_image">
             
             <div class="description">
-                <!-- <ngb-rating [max]="5" [(rate)]="rating" [readonly]="false"></ngb-rating> -->
-                <!-- <star-rating value="5" totalstars="5" checkedcolor="red" uncheckedcolor="black" size="24px" readonly="false" (rate)="onRate($event)"></star-rating> -->
                 <span>{{ item.title }}</span>
-
+                
                 <div class="ratings_and_reviews">
-                    <span>***** and no of reviews and shadow</span>
+                    <div class="ratings">
+                        <ngb-rating [max]="5" [(rate)]="rating" [readonly]="true"></ngb-rating>
+                        <span>23 reviews</span>
+                    </div>
                     <mat-icon>favorite_border</mat-icon>
                 </div>
             </div>
