@@ -30,6 +30,7 @@ import { RegisterComponent } from './COMPONENTS/register/register.component';
 import { LoginComponent } from './COMPONENTS/login/login.component';
 import { ProfileComponent } from './COMPONENTS/profile/profile.component';
 import { AdminComponent } from './PAGES/admin/admin.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { AdminComponent } from './PAGES/admin/admin.component';
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

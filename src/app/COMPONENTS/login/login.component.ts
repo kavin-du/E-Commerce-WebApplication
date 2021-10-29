@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { TokenStorageService } from './../../SERVICES/token-storage.service';
 import { AuthService } from './../../SERVICES/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -25,7 +26,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService, 
-    private tokenStorage: TokenStorageService
+    private tokenStorage: TokenStorageService,
+    private _snackBar: MatSnackBar,
   ) { }
 
   ngOnInit(): void {
@@ -60,8 +62,12 @@ export class LoginComponent implements OnInit {
         this.reloadPage();
       },
       err => {
-        this.errorMessage = err.error.message; // !!
+        this.errorMessage = err; // !!
         this.isLoginFailed = true;
+        console.log(this.isLoginFailed);
+        console.log(this.errorMessage);
+        this._snackBar.open(JSON.stringify(err.message), 'Close');
+        
       }
     );
   }

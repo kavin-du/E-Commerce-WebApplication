@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-const AUTH_API = 'https://test.test.com/'; // check s in http
+const AUTH_API = 'https://mystore-api-330411.el.r.appspot.com/api/v1/auth/'; // check s in http
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -17,7 +17,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(userName: string, password: string): Observable<any> {
-    return this.http.post(AUTH_API + 'signin', {
+    return this.http.post(AUTH_API + 'customer/login', {
       userName,
       password
     }, httpOptions);
@@ -25,7 +25,7 @@ export class AuthService {
 
   // ! change userName, firstName last name
   customerRegister(firstName: string, lastName: string, email: string, password: string, address: string, mobile: string): Observable<any> {
-    return this.http.post(AUTH_API + '/customer/register', {
+    return this.http.post(AUTH_API + 'customer/register', {
       firstName, 
       lastName,
       email,

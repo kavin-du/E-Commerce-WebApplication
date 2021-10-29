@@ -1,6 +1,7 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from './../../SERVICES/auth.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { FormControl, Validators, FormGroup, ValidatorFn, AbstractControl } from '@angular/forms';
 
 // type RegisterFormType = {
 //   firstName: string,
@@ -44,10 +45,17 @@ export class RegisterComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private AuthService: AuthService) { }
+  constructor(
+    private AuthService: AuthService, 
+    private _snackBar: MatSnackBar
+  ) { }
 
   ngOnInit(): void {
   }
+
+  // passwordConfirmValidator(): ValidatorFn{
+  //   return (control: AbstractControl): { [key: string]: boolean}
+  // }
 
   clearForm(): void {
     this.registerFormGroup.reset();
@@ -59,7 +67,6 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    // const { firstName, lastName, email, password, address, mobile } = this.form;
     console.log(this.registerFormGroup.value);
     this.AuthService.customerRegister(
       this.registerFormGroup.controls.firstName.value, 
@@ -74,8 +81,9 @@ export class RegisterComponent implements OnInit {
         this.isSignUpFailed = false;
       },
       err => {
-        this.errorMessage = 'this is the error '+err.error;
+        this.errorMessage =err;
         this.isSignUpFailed = true;        
+        this._snackBar.open(JSON.stringify(err.message), 'Close');
       }
     );
   }
