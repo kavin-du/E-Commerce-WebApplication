@@ -1,7 +1,6 @@
 <div class="card-container">
     <img class="profile-img-card" src="https://aplikasicerdas.net/warehouse/assets/images/admin.png" alt="" />
     <form 
-        *ngIf="!isSuccessful"
         [formGroup] = "registerFormGroup"
         (ngSubmit)="registerFormGroup.valid && onSubmit()"
         >
@@ -100,9 +99,9 @@
         
     </form>
 
-    <div class="alert alert-success" *ngIf="isSuccessful">
+    <!-- <div class="alert alert-success" *ngIf="isSuccessful">
         Registration success! (login again ?)
-    </div>
+    </div> -->
 </div>
 
 

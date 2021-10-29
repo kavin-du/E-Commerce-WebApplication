@@ -10,5 +10,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --textGray: #696969;
     --globalMargin: 75px;
 }
+
+.blue-snackbar .mat-simple-snackbar-action {
+    color: #2196F3;
+  }
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';

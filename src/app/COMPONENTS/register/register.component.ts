@@ -57,6 +57,10 @@ export class RegisterComponent implements OnInit {
       data => {
         this.isSuccessful = true;
         this.isSignUpFailed = false;
+        // window.location.reload()
+        this._snackBar.open('Regsitration Successful. Please Login.', 'Close', {
+          panelClass: ['blue-snackbar']
+        });
       },
       err => {
         this.errorMessage =err?.error?.errors;

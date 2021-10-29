@@ -29,10 +29,12 @@ import { LoginPageComponent } from './PAGES/login-page/login-page.component';
 import { RegisterComponent } from './COMPONENTS/register/register.component';
 import { LoginComponent } from './COMPONENTS/login/login.component';
 import { ProfileComponent } from './COMPONENTS/profile/profile.component';
-import { AdminComponent } from './PAGES/admin/admin.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CategoriesComponent } from './COMPONENTS/categories/categories.component';
+import { AdminPageComponent } from './PAGES/admin-page/admin-page.component';
+import { AddItemComponent } from './COMPONENTS/add-item/add-item.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -48,8 +50,9 @@ import { CategoriesComponent } from './COMPONENTS/categories/categories.componen
     RegisterComponent,
     LoginComponent,
     ProfileComponent,
-    AdminComponent,
     CategoriesComponent,
+    AdminPageComponent,
+    AddItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,8 @@ import { CategoriesComponent } from './COMPONENTS/categories/categories.componen
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
-    NgbModule
+    NgbModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
