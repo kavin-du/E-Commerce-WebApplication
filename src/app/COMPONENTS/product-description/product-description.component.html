@@ -33,7 +33,7 @@
                 <h3>{{ product.title}}</h3>
             </div>
             <div class="reviews">
-                <span>stars</span>
+                <ngb-rating [max]="5" [(rate)]="rating" [readonly]="true"></ngb-rating>
                 <span>1 reviews</span>
                 <div class="write_review">
                     <mat-icon>edit</mat-icon>
@@ -80,7 +80,7 @@
                         <p>this is the review body, this is the review body, 
                             this is the review body
                         </p>
-                        <span>***stars here **</span>
+                        <ngb-rating [max]="5" [(rate)]="rating" [readonly]="true"></ngb-rating>
                     </div>
                 </div>
                 <div class="review_form">
