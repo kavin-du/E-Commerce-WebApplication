@@ -1,152 +1,158 @@
-.header_top {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    height: 30px;
-    align-items: center;
+.header {
+    
 
-    button {
-        color: gray;
-        font-weight: normal; // 400
-        background-color: transparent;
-    }
-
-    button:hover {
-        color: var(--primaryColor);
-        background-color: transparent !important;
-    }
-    // this is not working
-    mat-menu > button {
-        background-color: black !important;
-        color: red !important;
-    }
-
-    mat-divider {
-        height: 15px;
-        background-color: black;
-    }
-}
-
-.header_body {
-    background-color: var(--backgroundLightGray);
-    display: flex;
-    justify-content: space-between;
-    height: 120px;
-    align-items: center;
-    padding-right: 10px;
-    padding-left: 10px;
-
-    .hotline_and_cart {
+    .header_top {
         display: flex;
         flex-direction: row;
+        justify-content: flex-end;
+        height: 30px;
         align-items: center;
-
-        .hotline_icon > mat-icon {
-            color: gray;
-            height: 50px; 
-            width: 50px;
-            font-size: 50px;
-            padding-right: 10px;
-        }
-        
-        .hotline {
-            display: flex;
-            flex-direction: column;
-
-            h3 {
-                font-weight: 500;
-                color: rgb(75, 70, 70);
-            }
-
-            p {
-                color: gray;
-                margin-top: -15px;
-            }
-        }
-
-        mat-divider {
-            color: black;
-            margin-right: 15px;
-            margin-left: 15px;
-            height: 50px;
-        }
-
-        .cart_icon {
-            display: flex;
-            align-items: center;
-
-            mat-icon {
-                margin-right: 20px; // for mat badge
-                padding: 12%;
-                color: white;
-                height: 35px; 
-                width: 35px;
-                font-size: 35px;
-                border-radius: 50%;
-                background-color: var(--secondaryColor);
-                cursor: pointer;
-            }
-            mat-icon > .mat-badge-content {
-                background: black !important;
-                color: red !important;
-            }
-                
-        }
-
-
-    }
-}
-
-.header_bottom {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: #333;
-    height: 60px;
-
-    .button_bar {
-        display: flex;
-        flex-wrap: none;
-    }
-
-    .button_bar > button {
-        background-color: transparent;
-        color: white;
-        font-size: 16px;
-        border-radius: 0;
-        height: 100%; 
-        font-weight: normal;
-    }
-    
-    .button_bar > button:hover {
-        background-color: var(--textGray);
-    }
-
-    .search_bar {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding-right: 10px;
-    
-        input {
-            height: 50%;
-            color: none;
-            border: solid 1px white;
-        }
-    
-        input:focus{
-            outline: solid 1px blue;
-        }
+        padding: 0 50px;
     
         button {
-            border-radius: 0;
-            border: none !important;
-            outline: none !important;
-            background-color: var(--primaryColor);
+            color: gray;
+            font-weight: normal; // 400
+            background-color: transparent;
+        }
+    
+        button:hover {
+            color: var(--primaryColor);
+            background-color: transparent !important;
+        }
+        // this is not working
+        mat-menu > button {
+            background-color: black !important;
+            color: red !important;
+        }
+    
+        mat-divider {
+            height: 15px;
+            background-color: black;
+        }
+    }
+    
+    .header_body {
+        background-color: var(--backgroundLightGray);
+        display: flex;
+        justify-content: space-between;
+        height: 120px;
+        align-items: center;
+        padding: 0 50px;
+
+        .hotline_and_cart {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+    
+            .hotline_icon > mat-icon {
+                color: gray;
+                height: 50px; 
+                width: 50px;
+                font-size: 50px;
+                padding-right: 10px;
+            }
+            
+            .hotline {
+                display: flex;
+                flex-direction: column;
+    
+                h3 {
+                    font-weight: 500;
+                    color: rgb(75, 70, 70);
+                }
+    
+                p {
+                    color: gray;
+                    margin-top: -15px;
+                }
+            }
+    
+            mat-divider {
+                color: black;
+                margin-right: 15px;
+                margin-left: 15px;
+                height: 50px;
+            }
+    
+            .cart_icon {
+                display: flex;
+                align-items: center;
+    
+                mat-icon {
+                    margin-right: 20px; // for mat badge
+                    padding: 12%;
+                    color: white;
+                    height: 35px; 
+                    width: 35px;
+                    font-size: 35px;
+                    border-radius: 50%;
+                    background-color: var(--secondaryColor);
+                    cursor: pointer;
+                }
+                mat-icon > .mat-badge-content {
+                    background: black !important;
+                    color: red !important;
+                }
+                    
+            }
+    
+    
+        }
+    }
+    
+    .header_bottom {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: #333;
+        height: 60px;
+        padding: 0 50px;
+    
+        .button_bar {
+            display: flex;
+            flex-wrap: none;
+        }
+    
+        .button_bar > button {
+            background-color: transparent;
             color: white;
+            font-size: 16px;
+            border-radius: 0;
+            height: 100%; 
+            font-weight: normal;
+        }
+        
+        .button_bar > button:hover {
+            background-color: var(--textGray);
+        }
+    
+        .search_bar {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding-right: 10px;
+        
+            input {
+                height: 50%;
+                color: none;
+                border: solid 1px white;
+            }
+        
+            input:focus{
+                outline: solid 1px blue;
+            }
+        
+            button {
+                border-radius: 0;
+                border: none !important;
+                outline: none !important;
+                background-color: var(--primaryColor);
+                color: white;
+            }
         }
     }
 }
+
 
 
 

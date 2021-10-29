@@ -32,6 +32,7 @@ import { ProfileComponent } from './COMPONENTS/profile/profile.component';
 import { AdminComponent } from './PAGES/admin/admin.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CategoriesComponent } from './COMPONENTS/categories/categories.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LoginComponent,
     ProfileComponent,
     AdminComponent,
+    CategoriesComponent,
   ],
   imports: [
     BrowserModule,

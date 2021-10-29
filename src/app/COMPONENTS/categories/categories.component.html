@@ -1,0 +1,12 @@
+<div class="categories">
+    <div class="title">
+        <mat-icon>list</mat-icon>
+        <span>CATEGORIES</span>
+    </div>
+    <div class="body">
+        <div class="item" *ngFor="let item of categories; let i=index">
+            <span>{{ item }} </span>
+            <mat-divider *ngIf="i != categories.length-1"></mat-divider>
+        </div>
+    </div>
+</div>

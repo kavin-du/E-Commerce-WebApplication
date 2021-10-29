@@ -1,2 +1,7 @@
-<app-home-image-slider></app-home-image-slider>
-<app-products [products]="items" [loadCompleted]="loadCompleted"></app-products>
+<div class="top">
+    <app-categories></app-categories>
+    <app-home-image-slider></app-home-image-slider>
+</div>
+<div class="body">
+    <app-products [products]="items" [loadCompleted]="loadCompleted"></app-products>
+</div>
