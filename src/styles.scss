@@ -8,6 +8,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --secondaryColor: #fe646f;
     --backgroundLightGray: #efefef;
     --textGray: #696969;
+    --globalMargin: 75px;
 }
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';

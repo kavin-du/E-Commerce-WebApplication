@@ -3,7 +3,7 @@
     flex-direction: column;
     background-color: var(--backgroundLightGray);
     width: 240px;
-    margin-left: 50px;
+    margin-left: var(--globalMargin);
     margin-right: 25px;
     
     .title {

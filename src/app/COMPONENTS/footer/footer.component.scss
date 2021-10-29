@@ -3,7 +3,7 @@
     flex-direction: row;
     background-color: var(--backgroundLightGray);
     color: var(--textGray);
-    padding: 50px;
+    padding: var(--globalMargin);
     line-height: 1.6rem;
     justify-content: space-between;
 
@@ -72,7 +72,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0 50px;
+    padding: 0 var(--globalMargin);
     span {
         color: var(--textGray);
     }
