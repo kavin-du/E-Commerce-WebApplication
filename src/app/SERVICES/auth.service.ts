@@ -23,7 +23,6 @@ export class AuthService {
     }, httpOptions);
   }
 
-  // ! change userName, firstName last name
   customerRegister(firstName: string, lastName: string, email: string, password: string, address: string, mobile: string): Observable<any> {
     return this.http.post(AUTH_API + 'customer/register', {
       firstName, 

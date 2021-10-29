@@ -1,9 +1,13 @@
 <div class="header">
     <div class="header_top">
-        <button mat-button [matMenuTriggerFor]="menu">
+        <button mat-button *ngIf="!getUser()" [matMenuTriggerFor]="menu">
             <span>My Account</span>
             <mat-icon>arrow_drop_down</mat-icon>
         </button>
+        <button mat-button *ngIf="getUser()">
+            <span>Hello, {{ getUser() }}!</span>
+        </button>
+
         <mat-menu #menu="matMenu">
             <button mat-menu-item [routerLink]="['/register']" routerLinkActive="router-link-active" >Register</button>
             <button mat-menu-item [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</button>

@@ -71,14 +71,14 @@ export class RegisterComponent implements OnInit {
 }
 
 export function passwordConfirmValidator(control: AbstractControl): { [key: string]: boolean} | null{
-  console.log(control.errors);
+  // console.log(control.errors);
   
   if (control.get('password')?.value && control.get('passwordConfirm')?.value && (control.get('password')?.value == control.get('passwordConfirm')?.value)) {
     
-    console.log('pass match');
+    // console.log('pass match');
     return null;
   }
-  console.log('do not match');
+  // console.log('do not match');
   return {'passwordsNotMatch': true};
   
 }

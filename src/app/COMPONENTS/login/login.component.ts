@@ -4,6 +4,7 @@ import { AuthService } from './../../SERVICES/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthService, 
     private tokenStorage: TokenStorageService,
     private _snackBar: MatSnackBar,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -46,34 +48,44 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.loginFormGroup.value);
     
     this.authService.login(
       this.loginFormGroup.controls.email.value, 
       this.loginFormGroup.controls.password.value, 
     ).subscribe(
       data => {
-        this.tokenStorage.saveToken(data.accessToken); //! check this
-        this.tokenStorage.saveUser(data); // ! check this
+        // console.log(data);
+        
+        this.tokenStorage.saveToken(data.token); //! check this
+        this.tokenStorage.saveUser(data.data); // ! check this
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
+
         this.roles = this.tokenStorage.getUser().roles; // !! 
-        this.reloadPage();
+        // this.reloadPage();
+        console.log(this.tokenStorage.getToken());
+        console.log(this.roles);
+        console.log(this.tokenStorage.getUser());
+        
+        this.router.navigate(['']);
       },
       err => {
-        this.errorMessage = err; // !!
+        console.log(err);
+        
+        this.errorMessage =err?.error?.errors?.join('\n');
         this.isLoginFailed = true;
+        
         console.log(this.isLoginFailed);
         console.log(this.errorMessage);
-        this._snackBar.open(JSON.stringify(err.message), 'Close');
+        this._snackBar.open(this.errorMessage, 'Close');
         
       }
     );
   }
 
-  reloadPage(): void {
-    window.location.reload(); // ! why this
-  }
+  // reloadPage(): void {
+  //   window.location.reload(); // ! why this
+  // }
 
 }
