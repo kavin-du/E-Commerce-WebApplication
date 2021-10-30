@@ -1,1 +1,22 @@
-<p>add-category works!</p>
+<div class="container">
+    <form 
+        [formGroup] = "categoryFormGroup"
+        (ngSubmit)="onSubmit()"
+        >
+
+        <div class="category">
+            <mat-form-field appearance="fill">
+                <mat-label>Category</mat-label>
+                <input matInput
+                    formControlName="categoryName"
+                    required>
+                <mat-error *ngIf="categoryFormGroup.get('categoryName')?.invalid">Category is required</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="buttons">
+            <button mat-button class="register" type="submit" [disabled]="!(categoryFormGroup.controls.valid)">Add</button>
+            <button mat-button class="clear" (click)="clearForm()">Clear</button>
+        </div>
+    </form>
+</div>

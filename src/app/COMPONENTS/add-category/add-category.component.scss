@@ -1,0 +1,40 @@
+.container {
+    margin-top: 20px;
+    form {
+        display: flex;
+        flex-direction: column;
+        .category {
+            display: flex;
+            justify-content: center;
+        }
+        div {
+            mat-form-field {
+                width: 235px;
+            }
+        }
+        .buttons {
+            margin: 10px auto;
+            button {
+                border-radius: 0;
+                border: none;
+                outline: none;
+                background-color: var(--primaryColor);
+                color: white;
+                width: 150px;
+
+                &:disabled {
+                    background-color: gray;
+                }
+            }
+            .register {
+                margin-right: 10px;
+            }
+            .clear {
+                margin-left: 10px;
+                background-color: white;
+                color: var(--primaryColor);
+                outline: 1px solid var(--primaryColor);
+            }
+        }
+    }
+}
