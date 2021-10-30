@@ -1,0 +1,49 @@
+.container {
+    form {
+        display: flex;
+        flex-direction: column;
+        .name_and_category {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            mat-form-field {
+                width: 235px;
+            }
+        }
+        div {
+            mat-form-field {
+                width: 100px;
+            }
+
+            .sku {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+        .buttons {
+            margin: 10px auto;
+            button {
+                border-radius: 0;
+                border: none;
+                outline: none;
+                background-color: var(--primaryColor);
+                color: white;
+                width: 150px;
+
+                &:disabled {
+                    background-color: gray;
+                }
+            }
+            .register {
+                margin-right: 10px;
+            }
+            .clear {
+                margin-left: 10px;
+                background-color: white;
+                color: var(--primaryColor);
+                outline: 1px solid var(--primaryColor);
+            }
+        }
+    }
+}
