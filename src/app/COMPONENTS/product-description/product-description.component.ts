@@ -18,6 +18,7 @@ export class ProductDescriptionComponent implements OnInit {
   product$: Observable<any> = new Observable<any>();
   // @Output() loadCompleted: boolean = false;
   rating: number = 3;
+  reviews: any[] = [];
 
   reviewForm: FormGroup = this.formBuilder.group({
     email: [null, [Validators.required, Validators.email]],
@@ -43,6 +44,18 @@ export class ProductDescriptionComponent implements OnInit {
     //   console.log(resp);
       
     // });
+  }
+
+  getReviews(id: string) {
+    this.api.getReviews(id).subscribe(
+      resp => {
+        console.log(resp);
+        this.reviews = resp;
+      },
+      err => {
+        console.log(err);        
+      }
+    );
   }
 
   onSubmit(): void {

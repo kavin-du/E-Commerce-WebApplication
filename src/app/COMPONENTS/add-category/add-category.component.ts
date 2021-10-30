@@ -14,7 +14,8 @@ export class AddCategoryComponent implements OnInit {
     categoryName: ['', Validators.required],
   });
 
-  errorMsg = '';
+  errorMsg: string = '';
+  addingItem: boolean = false;
   
   constructor(
     private fb: FormBuilder, 
@@ -44,6 +45,10 @@ export class AddCategoryComponent implements OnInit {
         console.log(err);
         this._snackBar.open(this.errorMsg, 'Close');
       
+      }, 
+      () => {
+        this.addingItem = true;
+        this.clearForm();
       }
     );
     

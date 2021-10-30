@@ -43,5 +43,9 @@ export class ApiService {
     httpOptions);
   }
 
+  getReviews(itemId: string): Observable<any> {
+    return this.http.get(API+'items/'+itemId+'/reviews');
+  }
+
 
 }
