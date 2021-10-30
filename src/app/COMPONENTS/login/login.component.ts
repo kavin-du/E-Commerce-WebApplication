@@ -67,8 +67,11 @@ export class LoginComponent implements OnInit {
         console.log(this.tokenStorage.getToken());
         console.log(this.roles);
         console.log(this.tokenStorage.getUser());
-        
-        this.router.navigate(['']);
+        if(this.roles[0] = 'owner') {
+          this.router.navigate(['/admin']);
+        } else {
+          this.router.navigate(['']);
+        }
       },
       err => {
         console.log(err);

@@ -62,7 +62,7 @@
                     <mat-error *ngIf="itemFormGroup.controls.skus.get('capacity')?.invalid">Capacity is required</mat-error>
                 </mat-form-field>
     
-                <button mat-mini-fab (click)="addSku()" [disabled]="!itemFormGroup.controls.skus.valid" color="primary" matTooltip="add SKU" aria-label="Add SKU">
+                <button mat-mini-fab type="button" (click)="addSku()" [disabled]="!itemFormGroup.controls.skus.valid" color="primary" matTooltip="add SKU" aria-label="Add SKU">
                     <mat-icon>add</mat-icon>
                   </button>
         </div>
@@ -71,7 +71,7 @@
 
         <div class="buttons">
             <button mat-button class="register" type="submit" [disabled]="!(itemFormGroup.controls.name.valid && itemFormGroup.controls.category.valid)">Add</button>
-            <button mat-button class="clear" (click)="clearForm()">Clear</button>
+            <button mat-button class="clear" type="button" (click)="clearForm()">Clear</button>
         </div>
     </form>
 </div>

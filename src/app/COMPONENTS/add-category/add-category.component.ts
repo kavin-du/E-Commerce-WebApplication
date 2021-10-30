@@ -1,3 +1,5 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ApiService } from './../../SERVICES/api.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
@@ -8,12 +10,17 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 })
 export class AddCategoryComponent implements OnInit {
 
-  public categoryFormGroup: FormGroup = this.fb.group({
+  categoryFormGroup: FormGroup = this.fb.group({
     categoryName: ['', Validators.required],
   });
+
+  errorMsg = '';
   
-  
-  constructor(private fb: FormBuilder) { 
+  constructor(
+    private fb: FormBuilder, 
+    private api: ApiService,
+    private _snackBar: MatSnackBar
+  ) { 
 
   }
   
@@ -21,7 +28,24 @@ export class AddCategoryComponent implements OnInit {
   }
 
   onSubmit(): void {   
-    console.log(this.categoryFormGroup.controls.categoryName.value);
+    let cat = {
+      name: this.categoryFormGroup.controls.categoryName.value,
+    }
+    console.log(cat);
+
+    this.api.addCategory(cat).subscribe(
+      data => {
+        this._snackBar.open('Category added successfully.', 'Close', {
+          panelClass: ['blue-snackbar']
+        });
+      },
+      err => {
+        this.errorMsg = err?.error?.errors;
+        console.log(err);
+        this._snackBar.open(this.errorMsg, 'Close');
+      
+      }
+    );
     
   }
 

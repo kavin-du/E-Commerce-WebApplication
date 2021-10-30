@@ -1,3 +1,5 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ApiService } from './../../SERVICES/api.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { passwordConfirmValidator } from '../register/register.component';
@@ -51,8 +53,14 @@ export class AddItemComponent implements OnInit {
   });
   
   skuList: SKU[] = [];
+
+  errorMsg = '';
   
-  constructor(private fb: FormBuilder) { 
+  constructor(
+    private fb: FormBuilder,
+    private api: ApiService,
+    private _snackBar: MatSnackBar
+    ) { 
 
   }
   
@@ -66,6 +74,20 @@ export class AddItemComponent implements OnInit {
       category: this.itemFormGroup.controls.category.value,
       skus: this.skuList
     };
+
+    this.api.addItem(item).subscribe(
+      data => {
+        this._snackBar.open('Item added successfully.', 'Close', {
+          panelClass: ['blue-snackbar']
+        });
+      },
+      err => {
+        this.errorMsg = err?.error?.errors;
+        console.log(err);
+        this._snackBar.open(this.errorMsg, 'Close');
+      
+      }
+    );
   }
 
   addSku(): void {

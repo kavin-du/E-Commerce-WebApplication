@@ -1,3 +1,4 @@
+import { authInterceptorProviders } from './../helpers/auth.interceptor';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -81,7 +82,7 @@ import { AddCategoryComponent } from './COMPONENTS/add-category/add-category.com
     MatSelectModule,
     MatTooltipModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
