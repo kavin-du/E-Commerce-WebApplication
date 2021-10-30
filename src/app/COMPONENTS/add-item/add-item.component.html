@@ -1,10 +1,10 @@
 <div class="container">
     <form 
         [formGroup] = "itemFormGroup"
-        (ngSubmit)="itemFormGroup.valid && onSubmit()"
+        (ngSubmit)="onSubmit()"
         >
 
-        <div class="form-group">
+        <div class="name_and_category">
             <mat-form-field appearance="fill">
                 <mat-label>Name</mat-label>
                 <input matInput
@@ -12,77 +12,66 @@
                     required>
                 <mat-error *ngIf="itemFormGroup.get('name')?.invalid">Name is required</mat-error>
             </mat-form-field>
-        </div>
-
-        <div class="categories">
             <mat-form-field appearance="fill">
                 <mat-label>Select a category</mat-label>
-                <mat-select formControlName="category" [value]="itemFormGroup.controls.category.value">
-                    <mat-option *ngFor="let cat of categories" value=cat.id>{{ cat.name }}</mat-option>
+                <mat-select formControlName="category" [value]="itemFormGroup.get('category')?.value">
+                    <mat-option *ngFor="let cat of categories" [value]=cat.id>{{cat.id}}.{{ cat.name }}</mat-option>
                 </mat-select>
-                <!-- <mat-error *ngIf="itemFormGroup.get('category')?.invalid">Name is required</mat-error> -->
             </mat-form-field>
         </div>
 
-        <div class="sku-amount">
-            <mat-form-field appearance="fill">
-                <mat-label>Select no of SKUs</mat-label>
-                <mat-select [(value)]="noOfSkus">
-                    <mat-option value=1>1</mat-option>
-                    <mat-option value=2>2</mat-option>
-                    <mat-option value=3>3</mat-option>
-                    <mat-option value=4>4</mat-option>
-                    <mat-option value=5>5</mat-option>
-                </mat-select>
-                <!-- <mat-error *ngIf="itemFormGroup.get('category')?.invalid">Name is required</mat-error> -->
-            </mat-form-field>
+        <div formGroupName="skus">    
+            <div class="sku">
+                <mat-form-field appearance="fill">
+                    <mat-label>Price</mat-label>
+                    <input matInput
+                        formControlName="price"
+                        required>
+                    <mat-error *ngIf="itemFormGroup.controls.skus.get('price')?.invalid">Price is required</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field appearance="fill">
+                    <mat-label>Discount</mat-label>
+                    <input matInput
+                        formControlName="discount"
+                        required>
+                    <mat-error *ngIf="itemFormGroup.controls.skus.get('discount')?.invalid">Discount is required</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field appearance="fill">
+                    <mat-label>Quantity</mat-label>
+                    <input matInput
+                        formControlName="quantity"
+                        required>
+                    <mat-error *ngIf="itemFormGroup.controls.skus.get('quantity')?.invalid">Quantity is required</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field appearance="fill">
+                    <mat-label>Size</mat-label>
+                    <input matInput
+                        formControlName="size"
+                        required>
+                    <mat-error *ngIf="itemFormGroup.controls.skus.get('size')?.invalid">Size is required</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field appearance="fill">
+                    <mat-label>Capacity</mat-label>
+                    <input matInput
+                        formControlName="capacity"
+                        required>
+                    <mat-error *ngIf="itemFormGroup.controls.skus.get('capacity')?.invalid">Capacity is required</mat-error>
+                </mat-form-field>
+    
+                <button mat-mini-fab type="button" (click)="addSku()" [disabled]="!itemFormGroup.controls.skus.valid" color="primary" matTooltip="add SKU" aria-label="Add SKU">
+                    <mat-icon>add</mat-icon>
+                  </button>
         </div>
 
-        <div class="sku">
-            <mat-form-field appearance="fill">
-                <mat-label>Price</mat-label>
-                <input matInput
-                    formControlName="price"
-                    required>
-                <mat-error *ngIf="itemFormGroup.get('price')?.invalid">Price is required</mat-error>
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-                <mat-label>Discount</mat-label>
-                <input matInput
-                    formControlName="discount"
-                    required>
-                <mat-error *ngIf="itemFormGroup.get('discount')?.invalid">Discount is required</mat-error>
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-                <mat-label>Quantity</mat-label>
-                <input matInput
-                    formControlName="quantity"
-                    required>
-                <mat-error *ngIf="itemFormGroup.get('quantity')?.invalid">Quantity is required</mat-error>
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-                <mat-label>Size</mat-label>
-                <input matInput
-                    formControlName="size"
-                    required>
-                <mat-error *ngIf="itemFormGroup.get('size')?.invalid">Size is required</mat-error>
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-                <mat-label>Capacity</mat-label>
-                <input matInput
-                    formControlName="capacity"
-                    required>
-                <mat-error *ngIf="itemFormGroup.get('capacity')?.invalid">Capacity is required</mat-error>
-            </mat-form-field>
         </div>
 
         <div class="buttons">
-            <button mat-button class="register" type="submit" [disabled]="!itemFormGroup.valid">Add</button>
-            <button mat-button class="clear" (click)="clearForm()">Clear</button>
+            <button mat-button class="register" type="submit" [disabled]="!(itemFormGroup.controls.name.valid && itemFormGroup.controls.category.valid)">Add</button>
+            <button mat-button class="clear" type="button" (click)="clearForm()">Clear</button>
         </div>
     </form>
 </div>

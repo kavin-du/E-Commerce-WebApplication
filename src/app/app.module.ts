@@ -1,3 +1,4 @@
+import { authInterceptorProviders } from './../helpers/auth.interceptor';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -35,6 +36,8 @@ import { CategoriesComponent } from './COMPONENTS/categories/categories.componen
 import { AdminPageComponent } from './PAGES/admin-page/admin-page.component';
 import { AddItemComponent } from './COMPONENTS/add-item/add-item.component';
 import {MatSelectModule} from '@angular/material/select';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { AddCategoryComponent } from './COMPONENTS/add-category/add-category.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +56,7 @@ import {MatSelectModule} from '@angular/material/select';
     CategoriesComponent,
     AdminPageComponent,
     AddItemComponent,
+    AddCategoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,9 +79,10 @@ import {MatSelectModule} from '@angular/material/select';
     MatProgressSpinnerModule,
     MatSnackBarModule,
     NgbModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTooltipModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

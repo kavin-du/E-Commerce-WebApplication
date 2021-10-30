@@ -98,7 +98,6 @@ export class HomeComponent implements OnInit {
     .subscribe(
       resp => {  // ? need to unsubscribe, otherwise mem leak
         this.items = resp;
-        console.log(resp);      
       }, err => { 
         console.log(err);
         

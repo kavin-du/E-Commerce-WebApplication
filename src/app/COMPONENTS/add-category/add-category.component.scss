@@ -1,25 +1,17 @@
 .container {
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
     form {
         display: flex;
         flex-direction: column;
-        .name_and_category {
+        .category {
             display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            mat-form-field {
-                width: 235px;
-            }
+            justify-content: center;
         }
         div {
             mat-form-field {
-                width: 100px;
-            }
-
-            .sku {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
+                width: 235px;
             }
         }
         .buttons {
@@ -46,5 +38,10 @@
                 outline: 1px solid var(--primaryColor);
             }
         }
+    }
+    .progress {
+        height: 100px;
+        background-color: transparent;
+        margin: auto;
     }
 }
