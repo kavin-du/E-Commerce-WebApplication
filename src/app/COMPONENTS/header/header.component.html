@@ -4,13 +4,17 @@
             <span>My Account</span>
             <mat-icon>arrow_drop_down</mat-icon>
         </button>
-        <button mat-button *ngIf="getUser()">
+        <button mat-button *ngIf="getUser()" [matMenuTriggerFor]="userMenu">
             <span>Hello, {{ getUser() }}!</span>
         </button>
 
         <mat-menu #menu="matMenu">
             <button mat-menu-item [routerLink]="['/register']" routerLinkActive="router-link-active" >Register</button>
             <button mat-menu-item [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</button>
+        </mat-menu>
+
+        <mat-menu #userMenu="matMenu">
+            <button mat-menu-item (click)="logOut()">Logout</button>
         </mat-menu>
         <mat-divider [vertical]="true"></mat-divider>
         <button mat-button>Wish List</button>

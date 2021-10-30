@@ -27,6 +27,10 @@ export class ApiService {
     return this.http.get(this.product+id);
   }
 
+  getCategories(): Observable<any> {
+    return this.http.get(API+'categories');
+  }
+
   addCategory(category: any): Observable<any> {
     return this.http.post(API + 'categories',
       category, 
